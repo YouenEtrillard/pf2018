@@ -1,0 +1,6 @@
+<svg *ngIf="icon !== '';else sprite" class="icon icon-{{icon}}">
+</svg>
+
+<div #sprite style="height: 0; width: 0; position: absolute; visibility: hidden; pointer-events: none;">
+  <!-- inject:svg --><!-- endinject -->
+</div>
