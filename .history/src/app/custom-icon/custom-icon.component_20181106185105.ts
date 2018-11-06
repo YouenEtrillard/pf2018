@@ -8,15 +8,13 @@ import { isContentQueryHost } from '@angular/core/src/render3/util';
 })
 export class CustomIconComponent implements OnInit {
   @Input() icon;
-  iconLink: string;
+  href: string;
 
   constructor() { }
 
   ngOnInit() {
-    if (this.icon) {
-      this.iconLink = `#${this.icon}`;
-      console.log(this.iconLink);
-    }
+    this.icon = 'home';
+    this.href = `#${this.icon}`;
   }
 
 }

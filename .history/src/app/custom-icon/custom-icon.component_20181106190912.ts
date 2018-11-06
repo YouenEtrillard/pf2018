@@ -13,10 +13,8 @@ export class CustomIconComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (this.icon) {
-      this.iconLink = `#${this.icon}`;
-      console.log(this.iconLink);
-    }
+    this.iconLink = `#${this.icon}`;
+    console.log(this.iconLink);
   }
 
 }

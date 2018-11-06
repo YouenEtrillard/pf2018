@@ -1,5 +1,6 @@
+<span *ngIf="icon">{{ iconLink }}</span>
 <svg *ngIf="icon && icon !== '';else sprite" [ngClass]="['icon', 'icon-' + icon]">
-  <use attr.xlink:href="{{ iconLink }}"/>
+  <use xlink:href="{{ iconLink }}" />
 </svg>
 
 <ng-template #sprite>
