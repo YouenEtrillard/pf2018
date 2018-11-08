@@ -1,0 +1,12 @@
+@import "../conf.scss";
+
+:host {
+  background: $main-bg;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+}

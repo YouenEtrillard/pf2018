@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { SkillsComponent } from './skills/skills.component';
 import { WorksComponent } from './works/works.component';
 import { WorkDetailComponent } from './work-detail/work-detail.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WorkDetailComponent } from './work-detail/work-detail.component';
     HomeComponent,
     SkillsComponent,
     WorksComponent,
-    WorkDetailComponent
+    WorkDetailComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

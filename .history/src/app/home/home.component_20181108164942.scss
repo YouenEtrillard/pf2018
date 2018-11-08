@@ -1,0 +1,11 @@
+:host {
+  position: relative;
+}
+
+.logo {
+  &-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

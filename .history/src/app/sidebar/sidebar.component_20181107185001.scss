@@ -1,0 +1,13 @@
+@import "../../conf.scss";
+
+:host {
+  background: rgba(black, .5);
+  width: 15rem;
+}
+
+.logo-wrapper {
+  width: calc(2/3*100%);
+  margin: auto;
+  display: block;
+  fill: $main-color;
+}

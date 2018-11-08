@@ -1,0 +1,23 @@
+main {
+  position: relative;
+  padding: 15rem;
+}
+
+.logo {
+  &-background {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    height: 150%;
+    width: 100%;
+    z-index: 0;
+    opacity: 0.2;
+    transform: translate3d(calc(50% + 20vw), 0, 0);
+  }
+
+  &-showcase {
+
+  }
+}
+
+.introduction

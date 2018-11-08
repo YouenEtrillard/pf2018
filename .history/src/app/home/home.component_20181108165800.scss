@@ -1,0 +1,12 @@
+main {
+  position: relative;
+  padding: 15rem;
+}
+
+.logo {
+  &-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

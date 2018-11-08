@@ -1,0 +1,56 @@
+@import "../../conf.scss";
+
+:host {
+  background: rgba(black, .5);
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  > * {
+    flex-grow: 0;
+  }
+}
+
+.logo-wrapper {
+  padding: 0 calc(1/6*100%);
+  fill: $main-color;
+  height: 15rem;
+}
+
+.bottom-wrapper {
+  height: 15rem;
+}
+
+nav {
+  ul, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    padding: 0 calc(1/3*100%);
+    display: block;
+    color: white;
+    fill: currentColor;
+    opacity: 0.5;
+    position: relative;
+    transition: all .25s ease-out;
+    transition-property: color, opacity;
+
+    &:hover {
+      color: $main-color;
+      opacity: 1;
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    opacity: 0;
+  }
+}

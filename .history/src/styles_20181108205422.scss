@@ -1,0 +1,107 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./conf.scss";
+
+$smartButtonBorderSize: .05em;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: .625em;
+  font-size: calc(1em * .625);
+}
+
+body {
+  margin: 0;
+  font-family: $fontText;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $fontTitle;
+}
+
+.button {
+  text-decoration: none;
+  color: $main-color;
+
+  &-smart {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    z-index: 1;
+    padding: 1em;
+
+
+    &::before {
+      content: '';
+      width: calc(100% - (#{$smartButtonBorderSize} * 8));
+      height: calc(100% - (#{$smartButtonBorderSize} * 8));
+      z-index: 0;
+      top: $smartButtonBorderSize * 3;
+      left: $smartButtonBorderSize * 3;
+      opacity: 0.9;
+      transform: scale3d(1,1,1);
+    }
+  }
+
+  &-text {
+
+  }
+
+  &-iconWrapper {
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+  }
+  
+  &::before,
+  &-border {
+    position: absolute;
+    background: $main-color;
+    transition: all .25s ease-out;
+    transition-property: color, transform, opacity;
+  }
+
+  &-border {
+
+    &--top,
+    &--bottom {
+      width: 100%;
+      height: $smartButtonBorderSize;
+      left: 0;
+    }
+
+    &--left,
+    &--right {
+      height: 100%;
+      width: $smartButtonBorderSize;
+      top: 0;
+    }
+
+    &--top {
+      top: 0;
+    }
+
+    &--right {
+      right: 0;
+    }
+
+    &--bottom {
+      bottom: 0;
+    }
+
+    &--left {
+      left: 0;
+    }
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+      transform: scale3d(1,1,1);
+    }
+  }
+}
