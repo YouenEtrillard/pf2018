@@ -46,6 +46,11 @@ nav {
     transition-property: color, opacity;
 
     &:hover {
+      // color: $main-color;
+      opacity: 1;
+    }
+    
+    &.is-active {
       color: $main-color;
       opacity: 1;
     }

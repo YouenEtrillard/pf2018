@@ -13,12 +13,6 @@ main {
   z-index: 1;
   display: flex;
   align-items: center;
-
-  section {
-    flex: 50% 0 0;
-    position: relative;
-    z-index: 1;
-  }
 }
 
 .logo {
@@ -29,18 +23,24 @@ main {
     height: 150%;
     width: 100%;
     z-index: 0;
-    transform: translate3d(calc(50% + 20vw), calc(50% + 20vh), 0);
+    transform: translate3d(calc(50% + 20%), calc(50% + 15%), 0);
     opacity: 0.2;
   }
 
   &-showcase {
     height: 55rem;
     fill: $main-color;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    z-index: 1;
+    transform: translate3d(calc(70% + 20%), calc(50% + 5%), 0);
   }
 }
 
 .introduction {
-  color: white;
+  color: $text-color-light;
+  flex: 50% 0 0;
   
   h1 {
     font-size: 7rem;

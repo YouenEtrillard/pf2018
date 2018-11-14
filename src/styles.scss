@@ -15,6 +15,7 @@ html {
 body {
   margin: 0;
   font-family: $fontText;
+  font-size: 1.6rem;
 }
 
 h1,
@@ -22,6 +23,17 @@ h2,
 h3 {
   font-family: $fontTitle;
 }
+
+h1 {
+  font-size: 7rem;
+  margin: 0;
+  font-weight: 400;
+  
+  + .subheading {
+    font-size: 2.5rem;
+  }
+}
+
 
 .btn {
   text-decoration: none;
@@ -135,13 +147,13 @@ h3 {
       &--top {
         top: 0;
         
-        // &::before {
-        //   transform-origin: center left;
-        // }
+        &::before {
+          transform-origin: center left;
+        }
         
-        // &::after {
-        //   transform-origin: center right;
-        // }
+        &::after {
+          transform-origin: center right;
+        }
       }
   
       &--right {
