@@ -11,6 +11,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { WorksComponent } from './works/works.component';
 import { WorkDetailComponent } from './work-detail/work-detail.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ParallaxCoverDirective } from './parallax-cover.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     SkillsComponent,
     WorksComponent,
     WorkDetailComponent,
-    SidebarComponent
+    SidebarComponent,
+    ParallaxCoverDirective
   ],
   imports: [
     BrowserModule,
