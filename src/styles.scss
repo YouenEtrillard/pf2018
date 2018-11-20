@@ -14,30 +14,36 @@ html {
 
 body {
   margin: 0;
-  font-family: $fontText;
+  font-family: var(--fontText);
   font-size: 1.6rem;
 }
 
 h1,
 h2,
-h3 {
-  font-family: $fontTitle;
+h3,
+h4 {
+  font-family: var(--fontTitle);
+  font-weight: 400;
 }
 
 h1 {
   font-size: 7rem;
   margin: 0;
-  font-weight: 400;
+  color: var(--main-color);
   
   + .subheading {
     font-size: 2.5rem;
   }
 }
 
+h2 {
+  font-size: 2.6rem;
+}
+
 
 .btn {
   text-decoration: none;
-  color: $main-color;
+  color: var(--main-color);
   transition-property: color;
   transition-duration: .4s;
   transition-timing-function: ease-out;
@@ -132,7 +138,7 @@ h1 {
       &--right {
         height: calc(100% - (2 * #{$smartButtonBorderSize}));
         width: $smartButtonBorderSize;
-        top: $smartButtonBorderSize; 
+        top: $smartButtonBorderSize;
 
         &::before {
           transform: scale3d(1,0,1);
@@ -170,7 +176,7 @@ h1 {
     }
  
     &:hover {
-      color: $main-bg;
+      color: var(--main-bg);
       transition-duration: .3s;
 
   

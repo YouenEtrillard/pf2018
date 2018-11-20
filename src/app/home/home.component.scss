@@ -2,7 +2,8 @@
 
 :host {
   width: 100%;
-  padding-left: 15rem;
+  padding-left: 10rem;
+  padding-left: var(--sidebar-width);
 }
 
 main {
