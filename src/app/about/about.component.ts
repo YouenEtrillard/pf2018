@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  mediumRes = '1080px';
-  largeRes = '1920px';
-  xLargeRes = '3440px';
+  mediumRes = '1350px';
+  largeRes = '2070px';
+  xLargeRes = '3590px';
+
   constructor() { }
 
   ngOnInit() {

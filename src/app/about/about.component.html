@@ -1,8 +1,8 @@
 <div class="cover fullscreen">
-  <picture>
-    <source srcset="assets/images/1080-608.jpg" media="(max-width: {{mediumRes}})">
+  <picture appParallaxCover [config]="{scrollerSelector: 'app-root'}">
+    <source srcset="assets/images/1200-675.jpg" media="(max-width: {{mediumRes}})">
     <source srcset="assets/images/1920-1080.jpg" media="(max-width: {{largeRes}})">
-        <source srcset="assets/images/3440-1440-1.jpg" media="(max-width: {{xLargeRes}})">
+    <source srcset="assets/images/3440-1440-1.jpg" media="(max-width: {{xLargeRes}})">
     <img src="assets/images/3440-1440-1.jpg" alt="yah">
   </picture>
 </div>
