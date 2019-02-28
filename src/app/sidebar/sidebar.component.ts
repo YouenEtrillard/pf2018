@@ -12,4 +12,10 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToRoute(id) {
+    setTimeout(() => {
+      document.getElementById(id).scrollIntoView();
+    }, 0);
+  }
+
 }

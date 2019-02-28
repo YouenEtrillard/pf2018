@@ -1,3 +1,29 @@
-<p>
-  work-detail works!
-</p>
+<main class="u-wrapper">
+  <ng-container *ngIf="work">
+    <h1 class="detail-title" *ngIf="work.title && work.title !== ''">{{work.title}}</h1>
+    <div class="detail-banner" [ngClass]="{'hasBanner': work.banner}">
+      <div *ngIf="work.logo && work.logo !== ''" class="detail-banner-logoWrapper">
+        <img class="detail-img" src="{{work.logo.data.full_url}}" alt="{{work.title}}">
+      </div>
+      <div *ngIf="work.banner && work.banner !== ''; else detailText" class="detail-banner-bannerWrapper">
+        <img class="detail-img" src="{{work.banner.data.full_url}}" alt="{{work.title}}">
+      </div>
+      <ng-template #detailText>
+        <div class="detail-banner-text">
+          <p class="tags">
+            <span *ngFor="let tag of work.tag_list; index as indTag">{{indTag > 0 ? ', ' : ''}}{{tag.tag_id.tag_name}}</span>
+          </p>
+          <p *ngIf="work.short_description && work.short_description !== ''">{{work.short_description}}</p>
+        </div>
+      </ng-template>
+    </div>
+    <div class="content" *ngIf="work.details && work.details !== ''" [innerHTML]="work.details"></div>
+    <div *ngIf="gallery && gallery !== ''" class="work-gallery">
+      <ngp-gallery>
+        <ngp-gallery-item *ngFor="let picture of gallery; index as indPic" [image]="picture"></ngp-gallery-item>
+      </ngp-gallery>
+    </div>
+    
+  </ng-container>
+</main>
+<ngp-lightbox></ngp-lightbox>

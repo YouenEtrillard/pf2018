@@ -1,72 +1,182 @@
 @import "../../conf.scss";
 
 :host {
-  background: rgba(black, .5);
-  // width: 15rem;
+  background: var(--sidebar-bg);
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex: 15rem 0 0;
+  flex-grow: 0;
+  flex-shrink: 0;
   position: fixed;
-  top: 0;
   left: 0;
-  width: 15rem;
+  width: 10rem;
   width: var(--sidebar-width);
   height: 100vh;
-
+  z-index: 101;
+  
   > * {
     flex-grow: 0;
+  }
+  
+  @include breakpoint($tablet, up) {
+    flex-direction: column;
+    top: 0;
+  }
+
+  @include breakpoint($tablet) {
+    bottom: 0;
+    height: var(--sidebar-height);
+    width: 100vw;
   }
 }
 
 .logo-wrapper {
-  padding: 0 calc(1/6*100%);
-  fill: var(--main-color);
-  height: 15rem;
-  width: 100%;
+  padding: calc(0.2vh + .3rem) calc(1 / 6 * var(--sidebar-width));
+  flex-shrink: 0;
+  
+  > a {
+    fill: var(--main-color);
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: opacity .25s ease-out;
+    outline: none;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+  
+  @include breakpoint($tablet, up) {
+    height: 10rem;
+    height: var(--sidebar-width);
+    width: 100%;
+  }
+
+  @include breakpoint($tablet) {
+    height: 100%;
+    width: 10rem;
+    width: var(--sidebar-width);
+  }
+
+  @include breakpoint($bigPhone) {
+    width: 25%;
+    max-width: var(--sidebar-width);
+  }
 }
 
 .bottom-wrapper {
-  height: 15rem;
+  height: 10rem;
+  width: 10rem;
+  height: var(--sidebar-width);
+  width: var(--sidebar-width);
+
+  @include breakpoint($phone) {
+    display: none;
+  }
 }
 
 nav {
   width: 100%;
+  font-family: var(--font-title);
 
+  @include breakpoint($tablet) {
+    height: 100%;
+  }
+
+  @include breakpoint($bigPhone) {
+    width: 75%;
+  }
+  
   ul, li {
     list-style-type: none;
     padding: 0;
     margin: 0;
   }
 
-  a {
-    padding: 0 25.5%;
+  ul {
+    @include breakpoint($tablet) {
+      // display: flex;
+      // justify-content: center;
+      // padding: calc(1 / 6 * var(--sidebar-width)) 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+    
+    @include breakpoint($phone) {
+      display: flex;
+      justify-content: space-between;
+      padding-right: calc(1 / 6 * var(--sidebar-width));
+    }
+  }
+
+  li {
+    width: 10rem;
     height: 10rem;
+    display: inline-block;
+
+    @include breakpoint($tablet) {
+      width: var(--sidebar-height);
+      height: var(--sidebar-height);
+    }
+  }
+
+
+  a {
     display: block;
+    // padding: 25.5%;
     color: white;
     fill: currentColor;
-    opacity: 0.5;
+    opacity: .7;
     position: relative;
     transition: all .25s ease-out;
     transition-property: color, opacity;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    outline: none;
+    transition: all .25s ease-out;
+    transition-property: color, opacity;
+    will-change: opacity;
 
+    .icon-wrapper {
+      width: 5rem;
+      height: 5rem;
+
+      @include breakpoint($tablet) {
+        width: calc(var(--sidebar-height) / 2.2);
+        height: calc(var(--sidebar-height) / 2.2);
+      }
+    }
+    
     &:hover {
       // color: var(--main-color);
       opacity: 1;
     }
     
     &.is-active {
-      color: var(--main-color);
       opacity: 1;
+      color: var(--main-color);
     }
   }
 
+  svg {
+    max-width: 5rem;
+    max-height: 5rem;
+  }
+
   span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    opacity: 0;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate3d(-50%, -50%, 0);
+    // opacity: 0;
+    margin-top: .3em;
+    font-weight: 300;
   }
 }

@@ -1,3 +1,36 @@
-<p>
-  works works!
-</p>
+<main class="u-wrapper">
+  <!-- <section class="intro">
+    <h1>Works</h1>
+  </section> -->
+  <ul class="work-list">
+    <li *ngFor="let work of works; index as index" class="work-item btn btn-smart">
+      <div class="work-contentWrapper">
+        <div *ngIf="work.logo && work.logo !== ''" class="work-imgWrapper">
+          <img class="work-img" src="{{work.logo.data.full_url}}" alt="{{work.title}}">
+        </div>
+        <!-- <h2 class="work-title" *ngIf="work.title && work.title !== ''">{{work.title}}</h2> -->
+        <p class="tags">
+          <span *ngFor="let tag of work.tag_list; index as indTag">{{indTag > 0 ? ', ' : ''}}{{tag.tag_id.tag_name}}</span>
+        </p>
+        <!-- <ul *ngIf="work.types && work.types !== ''">
+          <li *ngFor="let type of work.types">
+            <p>{{type}}</p>
+          </li>
+        </ul> -->
+      </div>
+      <span class="btn-smart-border btn-smart-border--top"></span>
+      <span class="btn-smart-border btn-smart-border--right"></span>
+      <span class="btn-smart-border btn-smart-border--bottom"></span>
+      <span class="btn-smart-border btn-smart-border--left"></span>
+      <div class="work-linkWrapper content">
+        <div *ngIf="work.short_description && work.short_description !== ''" class="shortdescWrapper">
+          <p class="shortdesc">{{work.short_description}}</p>
+        </div>
+        <a *ngIf="work.details && work.details !== ''; else insideLink" routerLink="{{work.url}}" class="work-link">More on this project</a>
+        <ng-template #insideLink>
+          <a target="_blank" href="{{work.url}}" class="work-link">Go to website</a>
+        </ng-template>
+      </div>
+    </li>
+  </ul>
+</main>

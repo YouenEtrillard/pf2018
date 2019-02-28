@@ -11,7 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'work/:id', component: WorkDetailComponent },
+  { path: 'works/:id', component: WorkDetailComponent },
   { path: 'works', component: WorksComponent },
   { path: 'about', component: AboutComponent },
   { path: 'skills', component: SkillsComponent },
@@ -19,7 +19,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    anchorScrolling: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,42 +1,99 @@
-<div class="cover fullscreen">
-  <picture appParallaxCover [config]="{scrollerSelector: 'app-root'}">
+<div id="cover" class="cover fullscreen">
+  <!-- <picture appParallaxCover [config]="{scrollerSelector: 'app-root'}"> -->
+  <picture appParallaxCover>
+    <source srcset="assets/images/809-1080.jpg" media="(max-width: {{xSmallRes}})">
+    <source srcset="assets/images/1080-1441.jpg" media="(max-width: {{smallRes}})">
     <source srcset="assets/images/1200-675.jpg" media="(max-width: {{mediumRes}})">
     <source srcset="assets/images/1920-1080.jpg" media="(max-width: {{largeRes}})">
-    <source srcset="assets/images/3440-1440-1.jpg" media="(max-width: {{xLargeRes}})">
-    <img src="assets/images/3440-1440-1.jpg" alt="yah">
+    <source srcset="assets/images/3440-1440.jpg" media="(max-width: {{xLargeRes}})">
+    <img src="assets/images/3440-1440.jpg" alt="yah">
   </picture>
 </div>
-<main>
-  <section class="intro">
+<main class="u-wrapper">
+  <section class="resume">
+    <section class="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li *ngFor="let xp of infos.experience; index as index" class="xp-item">
+          <div class="xp-contentWrapper">
+            <p *ngIf="xp.company && xp.company !== ''">{{xp.company}}</p>
+            <p *ngIf="xp.dates && xp.dates !== ''">{{xp.dates}}</p>
+            <p class="xp-title" *ngIf="xp.role && xp.role !== ''">{{xp.role}}</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section class="skills">
+      <h2>Some skills</h2>
+      <ul>
+        <li *ngFor="let skill of infos.skills; index as index" class="skill-item">
+          <p>{{skill.skill_name}}</p>
+        </li>
+      </ul>
+    </section>
+    <section class="education">
+      <h2>Education</h2>
+      <ul>
+        <li *ngFor="let educ of infos.education; index as index" class="educ-item">
+          <div class="educ-contentWrapper">
+            <p *ngIf="educ.dates && educ.dates !== ''">{{educ.dates}}</p>
+            <p *ngIf="educ.institute && educ.institute !== ''">{{educ.institute}}</p>
+            <p class="educ-title" *ngIf="educ.degree && educ.degree !== ''">{{educ.degree}}</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </section>
+  <section *ngIf="infos.facts" class="intro">
     <h1>Who am I ?</h1>
     <p class="subheading">That is a big question you're asking.
-      <br/>There are lots of ways to answer it, but I will leave aside all the metaphoricals and philisophals thinkings, 
-      and give you X facts about me so you can get an idea of what to expect if we met.</p>
+      <br/>There are lots of ways to answer it, but I will leave aside all the metaphoricals and philosophals thinkings, 
+      and give you {{ infos.facts.length }} facts about me so you can get an idea of what to expect if we meet.
+    </p>
   </section>
   <section class="fact-section">
     <ul class="fact-list">
-      <li *ngFor="let fact of facts; index as index"  class="fact-item">
+      <li *ngFor="let fact of infos.facts; index as index"  class="fact-item">
         <div class="fact-imgWrapper">
-          <img *ngIf="fact.img && fact.img !== ''" class="fact-img" src="{{fact.img}}" alt="Cover of french passeport">
-          <ng-template *ngIf="fact.svg && fact.svg !== ''">
-            {{fact.svg}}
+          <a *ngIf="fact.image_link && fact.image_link !== ''; else noImgLink" target="_blank" href="{{fact.image_link}}">
+            <img *ngIf="fact.image.data.full_url && fact.image.data.full_url !== ''" class="fact-img" src="{{fact.image.data.full_url}}" alt="{{fact.picture_alt}}">
+          </a>
+          <ng-template #noImgLink>
+            <img *ngIf="fact.image.data.full_url && fact.image.data.full_url !== ''" class="fact-img" src="{{fact.image.data.full_url}}" alt="{{fact.picture_alt}}">
           </ng-template>
+          <p class="credit" *ngIf="fact.credit && fact.credit !== ''">{{fact.credit}}</p>
         </div>
         <div class="fact-contentWrapper">
-          <h2 *ngIf="fact.title && fact.title !== ''">{{fact.title}}</h2>
+          <h2 *ngIf="fact.title && fact.title !== ''">N°{{index + 1}} - {{fact.title}}</h2>
           <p *ngIf="fact.text && fact.text !== ''">{{fact.text}}</p>
         </div>
       </li>
     </ul>
   </section>
-  <a routerLink="/skills" class="btn btn-smart" title="Skills">
+  <section id="contact" class="outro content">
+    <p>
+      This last year has been the year I improved the most and started some changes in my life.<br />
+      I want keep the momentum going in 2019 and move to the next steps professionally and personally.
+    </p>
+    <p>I'm currently looking for a job as front-end developer somewhere outside France. If you want to discuss about an opportunity or anything else, feel free to contact me.</p>
+    <ul class="contact-means">
+      <li>
+        <p>contact (at) youen-etrillard.com</p>
+      </li>
+      <li>
+        <p><a target="_blank" href="https://www.linkedin.com/in/youen-etrillard-12265883/">Linkedin</a></p>
+      </li>
+    </ul>
+  </section>
+  <!-- <a routerLink="/works" class="btn btn-smart" title="Works">
     <span class="btn-iconWrapper">
-      <app-custom-icon icon="skills"></app-custom-icon>
+      <app-custom-icon icon="works"></app-custom-icon>
     </span>
-    <span class="btn-text">Key skills</span>
+    <span class="btn-text">Some of my works</span>
     <span class="btn-smart-border btn-smart-border--top"></span>
     <span class="btn-smart-border btn-smart-border--right"></span>
     <span class="btn-smart-border btn-smart-border--bottom"></span>
     <span class="btn-smart-border btn-smart-border--left"></span>
-  </a>
+  </a> -->
 </main>
+<app-scrolltop></app-scrolltop>

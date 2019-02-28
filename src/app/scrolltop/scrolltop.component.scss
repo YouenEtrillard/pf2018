@@ -1,0 +1,36 @@
+@import "../../conf.scss";
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+  font-size: 0;
+  background: none;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  transform: rotateZ(-45deg);
+  cursor: pointer;
+
+  @include breakpoint($tablet) {
+    bottom: calc( var(--sidebar-height) + 15px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transform: translateY(-2px) rotateZ(-45deg);
+  }
+}
+ 
+.show-scroll {
+  opacity: 1;
+  transition: all .2s ease-in-out;
+}

@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./conf.scss";
 
-$smartButtonBorderSize: 2px;
 
 * {
   box-sizing: border-box;
@@ -14,39 +13,108 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--fontText);
-  font-size: 1.6rem;
+  font-family: var(--font-text);
+  font-size: 1.8rem;
+  font-size: calc(1.5rem + .1vw);
+  background: var(--main-bg);
+  color: var(--text-color-light);
+
+  
+  @include breakpoint($tablet, up) {
+    padding-left: 10rem;
+    padding-left: var(--sidebar-width);
+  }
+
+  @include breakpoint($tablet) {
+    padding-bottom: 10rem;
+    padding-bottom: var(--sidebar-height);
+  }
+}
+
+.u-wrapper {
+  width: 140rem;
+  width: var(--wrapper-width);
+  margin: 0 auto;
+  max-width: 95%;
+}
+
+ul {
+  padding: 0;
+}
+
+.content {
+  ul {
+    margin: 0 0 0 2em;
+
+    li {
+      list-style-type: disc;
+      margin: 0.2em 0;
+    }
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  a {
+    --hover-color: var(--third-color);
+    --hover-color: var(--second-color);
+    --hover-color: var(--main-color);
+    color: inherit;
+    border-bottom: 2px solid var(--hover-color);
+    text-decoration: none;
+    transition: background .25s ease-out;
+    
+    &:hover {
+      background: var(--hover-color);
+    }
+  }
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: var(--fontTitle);
+  font-family: var(--font-title);
+}
+h2,
+h3,
+h4 {
   font-weight: 400;
 }
 
 h1 {
   font-size: 7rem;
+  font-size: var(--fz-h1);
   margin: 0;
   color: var(--main-color);
+  font-weight: 300;
   
   + .subheading {
     font-size: 2.5rem;
+    font-size: var(--fz-subtitle);
+    line-height: 1.4;
   }
 }
 
 h2 {
   font-size: 2.6rem;
+  font-size: var(--fz-subtitle);
 }
 
 
 .btn {
+  --thickness: 2px;
+  --hover-color: var(--main-bg);
+  --bg-color: white;
+  --text-color: var(--main-color);
   text-decoration: none;
-  color: var(--main-color);
+  color: var(--text-color);
   transition-property: color;
   transition-duration: .4s;
   transition-timing-function: ease-out;
+  overflow: hidden;
 
   &-text,
   &-iconWrapper {
@@ -70,18 +138,19 @@ h2 {
     position: relative;
     display: inline-block;
     font-size: 3rem;
+    font-size: var(--fz-button);
     z-index: 1;
     padding: .5em 1em;
 
 
     &::before {
       content: '';
-      width: calc(100% - (#{$smartButtonBorderSize} * 6));
-      height: calc(100% - (#{$smartButtonBorderSize} * 6));
+      width: calc(100% - (var(--thickness) * 6));
+      height: calc(100% - (var(--thickness) * 6));
       z-index: -1;
-      top: $smartButtonBorderSize * 3;
-      left: $smartButtonBorderSize * 3;
-      background: white;
+      top: calc(var(--thickness) * 3);
+      left: calc(var(--thickness) * 3);
+      background: var(--bg-color);
       opacity: 0;
     }
  
@@ -99,12 +168,10 @@ h2 {
       &::before,
       &::after {
         content: '';
-        background: white;
+        background: var(--bg-color);
         width: 100%;
         height: 100%;
         position: absolute;
-        top: 0;
-        left: 0;
         transition-property: transform;
         transition-duration: inherit;
         transition-timing-function: inherit;
@@ -114,13 +181,14 @@ h2 {
       &--top,
       &--bottom {
         width: 100%;
-        height: $smartButtonBorderSize;
+        height: var(--thickness);
         left: 0;
 
         &::before,
         &::after {
           width: 50%;
           transform: scale3d(0,1,1);
+          top: 0;
         }
         
         &::before {
@@ -130,15 +198,15 @@ h2 {
 
         &::after {
           transform-origin: center left;
-          left: 50%;
+          right: 0;
         }
       }
   
       &--left,
       &--right {
-        height: calc(100% - (2 * #{$smartButtonBorderSize}));
-        width: $smartButtonBorderSize;
-        top: $smartButtonBorderSize;
+        height: calc(100% - (2 * var(--thickness)));
+        width: var(--thickness);
+        top: var(--thickness);
 
         &::before {
           transform: scale3d(1,0,1);
@@ -175,8 +243,9 @@ h2 {
       }
     }
  
-    &:hover {
-      color: var(--main-bg);
+    &:hover,
+    &:focus {
+      color: var(--hover-color);
       transition-duration: .3s;
 
   
@@ -219,4 +288,20 @@ h2 {
       }
     }
   }
+}
+
+.pswp {
+  position: fixed !important;
+  
+  &__zoom-wrap {
+    transform-origin: top left;
+  }
+
+  &__img--placeholder {
+    display: none !important;
+  }
+}
+
+.will-fade-in {
+  opacity: 0 !important;
 }

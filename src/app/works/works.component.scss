@@ -1,0 +1,120 @@
+@import "../../conf.scss";
+
+:host {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+main {
+  // color: var(--text-color-light);
+}
+
+.work {
+  
+  &-list {
+    padding: 0;
+    display: grid;
+    grid-gap: 1em;
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+    
+    @include breakpoint($smallPhone) {
+      grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    }
+  }
+
+  &-item {
+    --thickness: 1px;
+    --text-color: rgba(255, 255, 255, .5);
+    --hover-color: white;
+    --padding: 1.5em;
+    list-style-type: none;
+    display: block;
+    padding: var(--padding);
+    width: 100%;
+    height: 100%;
+    font-size: 1.6rem;
+    transition: border-color .25s ease-out;
+
+    &::before {
+      // display: none;
+      z-index: 1;
+    }
+    
+    &:hover,
+    &:focus {
+      border-color: white;
+
+      .work-linkWrapper {
+        opacity: 1;
+      }
+    }
+    
+    .tags {
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  &-link {
+    padding: 0 .2em;
+    transition-property: color, background;
+    
+    &:hover {
+      color: white;  
+    }
+    
+    &Wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      padding: var(--padding);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      z-index: 2;
+      transition: opacity .25s ease-out;
+      
+      .shortdesc {
+        color: var(--main-bg);
+
+        &Wrapper {
+          flex-grow: 1;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    color: var(--main-bg);
+    margin-bottom: 1em;
+  }
+
+  &-contentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &-img {
+    max-width: 75%;
+
+    &Wrapper {
+      flex-grow: 1;
+      width: 100%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
