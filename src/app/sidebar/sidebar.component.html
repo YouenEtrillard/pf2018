@@ -1,49 +1,51 @@
-<div class="logo-wrapper">
-  <a routerLink="/home" routerLinkActive="is-active" title="Go to Home page">
-    <app-custom-icon icon="logo" alt="Logo Youen Etrillard"></app-custom-icon>
-  </a>
-</div>
-<nav>
-  <ul>
-    <!-- <li>
-      <a routerLink="/home" routerLinkActive="is-active" title="Go to Home page">
-        <app-custom-icon icon="home"></app-custom-icon>
-        <span>Home</span>
-      </a>
-    </li> -->
-    <li>
-      <a routerLink="/about" (click)="goToRoute('cover')" routerLinkActive="is-active" title="Go to About page">
-        <div class="icon-wrapper">
-          <app-custom-icon icon="who-am-i"></app-custom-icon>
-        </div>
-        <span>About</span>
-      </a>
-    </li>
-    <li>
-      <a routerLink="/works" routerLinkActive="is-active" title="Go to Works page">
-        <div class="icon-wrapper">
-          <app-custom-icon icon="works"></app-custom-icon>
-        </div>
-        <span>Works</span>
-      </a>
-    </li>
-    <!-- <li>
-      <a routerLink="/skills" routerLinkActive="is-active" title="Go to Skills page">
-        <div class="icon-wrapper">
-          <app-custom-icon icon="skills"></app-custom-icon>
-        </div>
-        <span>Skills</span>
-      </a>
-    </li> -->
-    <li>
-      <a routerLink="/about" fragment="contact" (click)="goToRoute('contact')" title="Go to Contact section of about page">
-        <div class="icon-wrapper">
-          <app-custom-icon icon="speech-bubbles"></app-custom-icon>
-        </div>
-        <span>Contact</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-<div class="bottom-wrapper">
-</div>
+<aside appAppear>
+  <div class="logo-wrapper">
+    <a routerLink="/home" routerLinkActive="is-active" title="Go to Home page">
+      <app-custom-icon icon="logo" alt="Logo Youen Etrillard"></app-custom-icon>
+    </a>
+  </div>
+  <nav>
+    <ul>
+      <!-- <li>
+        <a routerLink="/home" routerLinkActive="is-active" title="Go to Home page">
+          <app-custom-icon icon="home"></app-custom-icon>
+          <span>Home</span>
+        </a>
+      </li> -->
+      <li>
+        <a routerLink="/about" (click)="goToRoute('cover')" routerLinkActive="is-active" title="Go to About page">
+          <div class="icon-wrapper">
+            <app-custom-icon icon="who-am-i"></app-custom-icon>
+          </div>
+          <span>About</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/works" routerLinkActive="is-active" title="Go to Works page">
+          <div class="icon-wrapper">
+            <app-custom-icon icon="works"></app-custom-icon>
+          </div>
+          <span>Works</span>
+        </a>
+      </li>
+      <!-- <li>
+        <a routerLink="/skills" routerLinkActive="is-active" title="Go to Skills page">
+          <div class="icon-wrapper">
+            <app-custom-icon icon="skills"></app-custom-icon>
+          </div>
+          <span>Skills</span>
+        </a>
+      </li> -->
+      <li>
+        <a routerLink="/about" fragment="contact" (click)="goToRoute('contact')" title="Go to Contact section of about page">
+          <div class="icon-wrapper">
+            <app-custom-icon icon="speech-bubbles"></app-custom-icon>
+          </div>
+          <span>Contact</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="bottom-wrapper">
+  </div>
+</aside>

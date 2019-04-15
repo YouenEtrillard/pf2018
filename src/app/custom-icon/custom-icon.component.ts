@@ -16,7 +16,6 @@ export class CustomIconComponent implements OnInit {
   ngOnInit() {
     if (this.icon) {
       this.iconLink = `#${this.icon}`;
-      console.log(this.iconLink);
     }
   }
 

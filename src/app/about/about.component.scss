@@ -2,22 +2,25 @@
 
 :host {
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .cover.fullscreen {
+  --cover-h: 143vh;
   width: 100%;
-  height: 100vh;
+  height: var(--cover-h);
   display: flex;
   overflow: hidden;
 
   @include breakpoint($tablet) {
-    height: calc(100vh - var(--sidebar-height));
+    height: calc(var(--cover-h) - var(--sidebar-height));
   }
 
   picture {
     // position: relative;
-    // height: 100%;
-    // width: 100%;
+    height: 100vh;
+    width: 100%;
     // overflow: hidden;
 
     img {

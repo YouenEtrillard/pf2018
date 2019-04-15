@@ -42,22 +42,22 @@ export class ParallaxCoverDirective implements OnInit {
     this.parallaxElement = this.parallaxElement || this.hostElement;
 
     // Grab scroll element
-    console.log(this.scrollerSelector);
-    // if (this.scrollerSelector) {
-    //   try {
-    //     this.scrollElement = document.querySelector(this.scrollerSelector);
-    //     console.log(this.scrollElement);
-    //     if (!this.scrollElement) {
-    //       throw new Error((`ID ('${this.scrollerSelector}') does not exist! Using window`));
-    //     }
-    //   } catch (e) {
-    //     // tslint:disable-next-line:no-console
-    //     console.warn(e);
-    //     this.scrollElement = window;
-    //   }
-    // } else {
+    if (this.scrollerSelector) {
+      try {
+        this.scrollElement = document.querySelector(this.scrollerSelector);
+        if (!this.scrollElement) {
+          throw new Error((`ID ('${this.scrollerSelector}') does not exist! Using window`));
+        }
+      } catch (e) {
+        // tslint:disable-next-line:no-console
+        console.warn(e);
+        this.scrollElement = window;
+      }
+    } else {
       this.scrollElement = window;
-    // }
+    }
+
+    console.log(this.scrollElement);
 
     this.onScroll();
 
@@ -65,7 +65,6 @@ export class ParallaxCoverDirective implements OnInit {
   }
 
   private onScroll = () => {
-    console.log('le on scrol');
     let result: string;
     let scrollPosition: number;
 

@@ -27,8 +27,7 @@ export class WorksComponent implements OnInit {
   getWorks(): void {
     this.worksService.getWorks()
     .subscribe(response => {
-      console.log(response);
       this.works = response;
-      });
+    });
   }
 }

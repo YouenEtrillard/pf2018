@@ -26,7 +26,6 @@ export class AboutService {
     return sessionStorageItems == null ? this.http.get(`https://api.youen-etrillard.com/directus/public/_/items/${param}?fields=*.*.*`)
       .pipe(
         map(response => response = response['data']),
-        tap(lesItems => console.log(lesItems)),
         tap(items => sessionStorage.setItem(param, JSON.stringify(items))),
         catchError(this.handleError(`get${param}'`, []))
       ) : of(sessionStorageItems);

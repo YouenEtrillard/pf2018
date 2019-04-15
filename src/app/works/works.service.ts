@@ -28,7 +28,6 @@ export class WorksService {
     return sessionStorageWorks == null ? this.http.get<Work[]>('https://api.youen-etrillard.com/directus/public/_/items/works?fields=*.*.*')
       .pipe(
         map(response => response = response['data']),
-        tap(lesItems => console.log(lesItems)),
         tap(items => sessionStorage.setItem('works', JSON.stringify(items))),
         catchError(this.handleError('getWorks', []))
     ) : of(sessionStorageWorks);
