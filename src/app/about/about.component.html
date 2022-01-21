@@ -47,19 +47,23 @@
   <section *ngIf="infos.facts" class="intro">
     <h1>Who am I ?</h1>
     <p class="subheading">That is a big question you're asking.
-      <br/>There are lots of ways to answer it, but I will leave aside all the metaphoricals and philosophals thinkings, 
+      <br />There are lots of ways to answer it, but I will leave aside all the metaphoricals and philosophals
+      thinkings,
       and give you {{ infos.facts.length }} facts about me so you can get an idea of what to expect if we meet.
     </p>
   </section>
   <section class="fact-section">
     <ul class="fact-list">
-      <li *ngFor="let fact of infos.facts; index as index"  class="fact-item">
+      <li *ngFor="let fact of infos.facts; index as index" class="fact-item">
         <div class="fact-imgWrapper">
-          <a *ngIf="fact.image_link && fact.image_link !== ''; else noImgLink" target="_blank" href="{{fact.image_link}}">
-            <img *ngIf="fact.image.data.full_url && fact.image.data.full_url !== ''" class="fact-img" src="{{fact.image.data.full_url}}" alt="{{fact.picture_alt}}">
+          <a *ngIf="fact.image_link && fact.image_link !== ''; else noImgLink" target="_blank"
+            href="{{fact.image_link}}">
+            <img *ngIf="fact.image.data.full_url && fact.image.data.full_url !== ''" class="fact-img"
+              src="{{fact.image.data.full_url}}" alt="{{fact.picture_alt}}">
           </a>
           <ng-template #noImgLink>
-            <img *ngIf="fact.image.data.full_url && fact.image.data.full_url !== ''" class="fact-img" src="{{fact.image.data.full_url}}" alt="{{fact.picture_alt}}">
+            <img *ngIf="fact.image.data.full_url && fact.image.data.full_url !== ''" class="fact-img"
+              src="{{fact.image.data.full_url}}" alt="{{fact.picture_alt}}">
           </ng-template>
           <p class="credit" *ngIf="fact.credit && fact.credit !== ''">{{fact.credit}}</p>
         </div>
@@ -71,12 +75,31 @@
     </ul>
   </section>
   <section id="contact" class="outro content">
-    <p>
-      This last year has been the year I improved the most and started some changes in my life.<br />
-      I want to keep the momentum going in 2019 and move to the next steps professionally and personally.
-    </p>
-    <p>I'm currently looking for a job as front-end developer somewhere outside France. If you want to discuss about an opportunity or anything else, feel free to contact me.</p>
-    <ul class="contact-means">
+    <div class="outro__quote">
+      <blockquote>
+        <header>Original text from early 2019</header>
+        <main>
+          <p>
+            This last year has been the year I improved the most and started some changes in my life.<br />
+            I want to keep the momentum going in 2019 and move to the next steps professionally and personally.
+          </p>
+          <p>
+            I'm currently looking for a job as front-end developer somewhere outside France. If you want to discuss
+            about
+            an opportunity or anything else, feel free to contact me.
+          </p>
+        </main>
+      </blockquote>
+    </div>
+    <div class="outro__current">
+      <p>
+        Well, I'm now working for Check24 in Munich as a Software Entwickler, so I guess the main box is ticked.
+        It's time to learn a bunch of stuff - Including German - and get to live in the beer and bretzel country (I
+        don't
+        even like beer, but don't tell them)
+      </p>
+    </div>
+    <ul class="outro__contact-means">
       <li>
         <p><a target="_blank" href="./cv-youen-etrillard.pdf">Resume</a></p>
       </li>

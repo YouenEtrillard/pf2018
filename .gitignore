@@ -17,6 +17,7 @@
 .settings/
 *.sublime-workspace
 /.history
+/backup
 
 # IDE - VSCode
 .vscode/*

@@ -40,7 +40,6 @@ aside {
     width: 100%;
     height: 100%;
     transition: opacity .25s ease-out;
-    outline: none;
 
     &:hover {
       opacity: .7;
@@ -96,9 +95,6 @@ nav {
 
   ul {
     @include breakpoint($tablet) {
-      // display: flex;
-      // justify-content: center;
-      // padding: calc(1 / 6 * var(--sidebar-width)) 0;
       width: 100%;
       height: 100%;
       text-align: center;
@@ -125,7 +121,6 @@ nav {
 
   a {
     display: block;
-    // padding: 25.5%;
     color: white;
     fill: currentColor;
     opacity: .7;
@@ -139,10 +134,10 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    outline: none;
     transition: all .25s ease-out;
     transition-property: color, opacity;
     will-change: opacity;
+    outline-offset: -2px;
 
     .icon-wrapper {
       width: 5rem;
@@ -155,7 +150,6 @@ nav {
     }
     
     &:hover {
-      // color: var(--main-color);
       opacity: 1;
     }
     
@@ -171,11 +165,6 @@ nav {
   }
 
   span {
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate3d(-50%, -50%, 0);
-    // opacity: 0;
     margin-top: .3em;
     font-weight: 300;
   }

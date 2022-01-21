@@ -4,7 +4,12 @@
   --sidebar-width: 10rem;
   --sidebar-height: calc(4vh + 4rem);
   --padding-top: 10vh;
-  --main-bg: #252627;
+  --overlay-light: #252627;
+  --overlay-dark: #252627;
+  --surface: #252627;
+  --base: #252627;
+  --overflow: #252627;
+  --main-bg: var(--base);
   --sidebar-bg: #121313;
   --main-color: #048b9a;
   --second-color: #E6CC12;
@@ -16,6 +21,8 @@
   --fz-h1: calc(3rem + 1.1vw);
   --fz-subtitle: calc(2rem + .1vw);
   --fz-button: calc(2.2rem + .2vw);
+  --outline-offset-content: 2px;
+  --outline-width-content: 2px;
 }
 
 $main-bg: #252627;
